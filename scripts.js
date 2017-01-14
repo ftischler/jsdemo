@@ -10,9 +10,9 @@ function Auto(marke, farbe) {
     //Step 2:
     this.beschleunigenAsync = beschleunigenAsync;
     this.bremsenAsync = bremsenAsync;
-    this.darfBeschleunigen = true;
-    this.darfBremsen = true;
-    this.verzoegerung = 2000; //Zeit in ms
+    var _darfBeschleunigen = true;
+    var _darfBremsen = true;
+    var _verzoegerung = 2000; //Zeit in ms
 
     //Step 1:
     function hupen() {
@@ -34,7 +34,7 @@ function Auto(marke, farbe) {
 
         //Anonyme Function handler. Wird später setTimeout übergeben.
         var handler = function() {
-          if(_this.darfBeschleunigen) {
+          if(_darfBeschleunigen) {
             _this.beschleunigen();
             //Callback aufrufen:
             successCallback(_this.geschwindigkeit);
@@ -46,7 +46,7 @@ function Auto(marke, farbe) {
         };
 
         //setTimeout sorgt für einen zeitverzögerten Aufruf der Handler-Function (asynchron):
-        setTimeout(handler, this.verzoegerung);
+        setTimeout(handler, _verzoegerung);
         console.log("Beschleunigungsvorgang eingeleitet");
     }
 
@@ -56,7 +56,7 @@ function Auto(marke, farbe) {
 
         //Anonyme Function handler. Wird später setTimeout übergeben.
         var handler = function() {
-            if(_this.darfBremsen) {
+            if(_darfBremsen) {
                 _this.bremsen();
                 //Callback aufrufen:
                 successCallback(_this.geschwindigkeit);
@@ -68,7 +68,7 @@ function Auto(marke, farbe) {
         }
 
         //setTimeout sorgt für einen zeitverzögerten Aufruf der Handler-Function (asynchron):
-        setTimeout(handler, this.verzoegerung);
+        setTimeout(handler, _verzoegerung);
         console.log("Bremsvorgang eingeleitet");
     }
 }
