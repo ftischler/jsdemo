@@ -119,8 +119,8 @@ var audi = {
     marke: "Audi",
     farbe: "silber",
     geschwindigkeit: 0,
-    bremsen: bmw.bremsen,
-    beschleunigen: bmw.beschleunigen,
+    beschleunigen: Auto.prototype.beschleunigen,
+    bremsen: Auto.prototype.bremsen,
     hupen: function() {
         console.log("Tutututututu ich bin 1 schwuler Audi");
     }
