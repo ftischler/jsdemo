@@ -4,12 +4,12 @@ function Auto(marke, farbe) {
     this.farbe = farbe; //public
     this.geschwindigkeit = 0;   //public, Initialwert: 0
     this.hupen = hupen; //Funktionszuweisung
-    this.beschleunigen = beschleunigen; //Funktionszuweisung
-    this.bremsen = bremsen; //Funktionszuweisung
+    Auto.prototype.beschleunigen = beschleunigen; //Funktionszuweisung
+    Auto.prototype.bremsen = bremsen; //Funktionszuweisung
 
     //Step 2:
-    this.beschleunigenAsync = beschleunigenAsync;
-    this.bremsenAsync = bremsenAsync;
+    Auto.prototype.beschleunigenAsync = beschleunigenAsync;
+    Auto.prototype.bremsenAsync = bremsenAsync;
     var _darfBeschleunigen = true;
     var _darfBremsen = true;
     var _verzoegerung = 2000; //Zeit in ms
@@ -132,8 +132,8 @@ console.log(audi.farbe);
 audi.hupen();
 
 console.log("Fahren");
-console.log(audi.geschwindigkeit);
+console.log("Der " + audi.marke + " faehrt " + audi.geschwindigkeit + " km/h");
 audi.beschleunigen();
-console.log(audi.geschwindigkeit);
+console.log("Der " + audi.marke + " faehrt " + audi.geschwindigkeit + " km/h");
 audi.bremsen();
 console.log(audi.geschwindigkeit);
